@@ -1,0 +1,37 @@
+PROJECT:	Heart rate
+AUTHOR:		osotn
+STATUS: 	created
+
+This document describes main requirements on arm heart rate
+simple device that consists from android phone mounted on arm, arduino
+device mounted on wrist, and heart rate sensor mounted on little finger of arm.
+
+     \=====\
+      \=Ph==\ <-Phone (2)            ^
+       \=====\                      //
+        \     ---------------------/ =====)
+         \                  xxxx   | =====)
+          __-----------------------\ =====)
+                             ^       ====X  <-- Sensor (1) 
+                             |Arduino (2)
+
+
+1. Sensor is a small Optical sensor of heart rate (and oxygen level) that
+   toughly connected to a little finger and outputs signal via analog or I2C/SPI
+   interface to arduino device (up to 10 cm);
+2. Arduino is micro arduino device that receives signal from the sensor and
+   outputs data in text form (e.g., "{200}, {3500}, "} to Android telephone 
+   via usb-uart or bluetooth interfaces.
+3. Phone is An android phone that receives text form data from arduino device
+   and shows it in as GUI application and provide corresponsing audio signal
+   to user via headphone (text to voice service).
+
+Application on the phone can use data from GPS and Acceleration sensors
+on the phone (and possible acceleration sensor that connected to arduino
+device).
+
+The first mock-up (prototype) device is going to be implemented as
+usb-connection between the Phone and Arduino device (OTG USB, that provide
+USB-COMport connection and power supply).
+
+
